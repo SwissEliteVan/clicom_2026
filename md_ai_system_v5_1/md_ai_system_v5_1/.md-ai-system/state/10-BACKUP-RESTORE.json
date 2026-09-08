@@ -61,7 +61,7 @@
         "Aucun élément nouveau ne permet de lever les preuves obligatoires manquantes ; une décision ou une matérialisation opérationnelle est nécessaire avant une nouvelle IA2."
       ],
       "risk_change": "ÉLEVÉ",
-      "recheck": "Nouvelle relecture après le commit 7c09c88 : le workspace reste propre et aucun accès, workflow, environnement ou preuve nouvelle ne permet de lever les bloqueurs IA2."
+      "recheck": "Nouvelle relecture après le commit 4a6b47f : le workspace reste propre et aucun accès, workflow, environnement ou preuve nouvelle ne permet de lever les bloqueurs IA2."
     },
     "ia2": {
       "stage": "2-IA2-VERIFICATION.md",
