@@ -33,7 +33,7 @@
     "05-DATA-BACKEND-AUTH": {
       "applicability": "ACTIVE",
       "state_file": "state/05-DATA-BACKEND-AUTH.json",
-      "status": "ANALYSE",
+      "status": "VALIDÉ",
       "validation_commit": null
     },
     "06-SAAS-LIFECYCLE": {

@@ -9,12 +9,12 @@ Vue générée depuis les JSON. Ne pas éditer manuellement.
 | 2 | `02-STACK` | ACTIVE | VALIDÉ | NEW_WORK | — | — |
 | 3 | `03-BOOTSTRAP` | ACTIVE | VALIDÉ | NEW_WORK | — | — |
 | 4 | `04-ARCHITECTURE` | ACTIVE | VALIDÉ | NEW_WORK | — | — |
-| 5 | `05-DATA-BACKEND-AUTH` | ACTIVE | ANALYSE | NEW_WORK | — | — |
+| 5 | `05-DATA-BACKEND-AUTH` | ACTIVE | VALIDÉ | NEW_WORK | — | — |
 | 6 | `06-SAAS-LIFECYCLE` | N/A | N/A | NEW_WORK | — | — |
 | 7 | `07-ECOMMERCE-LIFECYCLE` | N/A | N/A | NEW_WORK | — | — |
 | 8 | `08-INTERNAL-APP-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
 | 9 | `09-API-BACKEND-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
-| 10 | `10-BACKUP-RESTORE` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
+| 10 | `10-BACKUP-RESTORE` | ACTIVE | À FAIRE | NEW_WORK | — | — |
 | 11 | `11-MARKETING-BRAND-DIFFERENTIATION` | ACTIVE | À FAIRE | NEW_WORK | — | — |
 | 12 | `12-DESIGN-SYSTEM-BRAND` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 13 | `13-DESIGN-NAVIGATION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |

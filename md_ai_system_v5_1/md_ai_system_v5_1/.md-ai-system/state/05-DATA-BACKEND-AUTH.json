@@ -90,10 +90,37 @@
       "blockers": [],
       "risk_change": "ÉLEVÉ"
     },
-    "ia2": null,
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "Les modèles leads, clients, projects, subscriptions et ai_tools_registry sont justifiés par ARCHITECTURE.md et leurs relations documentées sont cohérentes avec l'espace client et le suivi opérationnel.",
+        "Le flux audit → Server Action → leads Supabase → e-mail Resend/analytics, l'authentification Supabase SSR et le webhook Stripe sont confirmés par ARCHITECTURE.md et STACK_TECHNIQUE.md.",
+        "La RLS sur toutes les tables, la limitation des données client par user_id et le maintien des secrets service_role côté serveur sont cohérents avec AGENTS.md et ARCHITECTURE.md.",
+        "Stripe reste la source de vérité des abonnements ; Supabase conserve une vue opérationnelle, sans logique de prix codée en dur.",
+        "La stratégie de migrations versionnées non destructives est confirmée ; aucune migration destructive ne peut être introduite sans contrôle renforcé.",
+        "Le workspace ne contient encore aucun package.json, code backend, client Supabase, middleware, Server Action, route webhook, migration SQL ou environnement Supabase ; aucun backend n'est donc créé prématurément à IA2.",
+        "Git a été contrôlé sur main après validation du lot documentaire ; le working tree est propre et aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [
+        "ARCHITECTURE.md décrit un schéma leads avec type et score, tandis que le SQL abrégé de DEPLOYMENT_PIPELINE.md omet ces champs.",
+        "ARCHITECTURE.md exige RLS sur toutes les tables et décrit une politique client ; le SQL de DEPLOYMENT_PIPELINE.md ne montre explicitement que l'activation RLS de leads et laisse les politiques en commentaire.",
+        "ARCHITECTURE.md ajoute user_id et created_at à plusieurs modèles, alors que les extraits SQL de DEPLOYMENT_PIPELINE.md sont abrégés et ne reprennent pas tous ces champs."
+      ],
+      "new_gaps": [
+        "Les tables, migrations, politiques RLS et clients Supabase restent à matérialiser.",
+        "La configuration Auth, les sessions, les permissions détaillées et le middleware restent à implémenter.",
+        "La bibliothèque de validation des formulaires et le détail de l'idempotence des webhooks restent à spécifier.",
+        "Les transactions inter-entités et la procédure de migration restent à détailler avant l'implémentation.",
+        "Aucun environnement Supabase réel n'est connecté au workspace."
+      ],
+      "blockers": [],
+      "risk_change": "ÉLEVÉ"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": "1-IA1-ANALYSE.md",
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -105,6 +132,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": "ANALYSE",
+  "status": "VALIDÉ",
   "validation_commit": null
 }
