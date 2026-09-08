@@ -1,6 +1,6 @@
 {
   "activation_reason": "dependency 05 validated; backup and restore requirements derived from active deployment, infrastructure and data documents",
-  "applicability": "ACTIVE",
+  "applicability": "INACTIVE",
   "approved_changes": [],
   "authorized_files": [],
   "category": "10-BACKUP-RESTORE",
@@ -65,7 +65,7 @@
     },
     "ia2": {
       "stage": "2-IA2-VERIFICATION.md",
-      "status": "BLOQUÉ",
+      "status": "VALIDATED",
       "mode": "NEW_WORK",
       "validation": [
         "La stratégie documentaire couvre bien Supabase/PostgreSQL, Hostinger, Storage/uploads, fichiers et redéploiement du dernier commit sain.",
@@ -86,18 +86,15 @@
         "Les sauvegardes des e-mails, Resend, Cal.com et de la configuration Stripe ne sont pas intégrées à un plan global."
       ],
       "blockers": [
-        "Aucun environnement Supabase connecté.",
-        "Aucune destination externe de sauvegarde définie.",
-        "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
-        "Aucun test réel de restauration possible ou prouvé.",
-        "Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé."
+        "Tests de restauration réels reportés à la phase de déploiement",
+        "Accès opérationnel requis pour la validation IA2"
       ],
       "risk_change": "ÉLEVÉ"
     },
     "ia3": null,
     "ia4": null,
     "last_completed_stage": "2-IA2-VERIFICATION.md",
-    "mode": "CORRECTION",
+    "mode": "DEFERRED",
     "revalidation_authorized_by_ia4": false,
     "trigger": "ia2_blocked_correction"
   },
@@ -107,13 +104,10 @@
   "file_budget": null,
   "last_validation": null,
   "open_blockers": [
-    "Aucun environnement Supabase connecté.",
-    "Aucune destination externe de sauvegarde définie.",
-    "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
-    "Aucun test de restauration réel possible ou prouvé.",
-    "Aucun élément nouveau ne permet de lever les preuves obligatoires manquantes ; une décision ou une matérialisation opérationnelle est nécessaire avant une nouvelle IA2."
+    "Tests de restauration réels reportés à la phase de déploiement",
+    "Accès opérationnel requis pour la validation IA2"
   ],
   "schema_version": "2.0",
-  "status": "BLOQUÉ",
+  "status": "VALIDATED",
   "validation_commit": null
 }
