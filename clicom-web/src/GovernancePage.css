@@ -130,3 +130,26 @@
   .governance-cta-inner { align-items: stretch; flex-direction: column; justify-content: center; gap: 27px; padding: 70px 0; }
   .governance-cta .button { width: 100%; }
 }
+
+/* Gouvernance IA: the navy/cyan sub-identity remains distinct, never generic. */
+.governance-page { background: var(--clicom-white); }
+.governance-hero, .governance-method, .governance-cta { background: var(--clicom-navy); }
+.governance-hero h1, .governance-cta h2, .governance-heading-light h2 { font-family: var(--font-display); }
+.governance-hero-answer, .governance-heading-light p, .governance-cta p { color: var(--clicom-dark-text); }
+.governance-hero-note { color: var(--clicom-muted-dark); }
+.signal-card, .principle-card, .deliverable-card, .pricing-card { border-radius: var(--radius-md); }
+.signal-card { box-shadow: var(--shadow-lg); }
+.deliverable-card, .pricing-card { transition: transform var(--motion-fast) var(--ease-out), box-shadow var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out); }
+.deliverable-card:hover { box-shadow: var(--shadow-md); }
+.pricing-card-featured { box-shadow: var(--shadow-md); }
+.source-list { border-top-color: var(--clicom-line); }
+.source-list a { border-bottom-color: var(--clicom-line); }
+
+@media (max-width: 700px) {
+  .governance-hero h1 { font-size: clamp(34px, 11vw, 45px); }
+  .governance-hero-copy { padding-top: var(--space-8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deliverable-card, .pricing-card { transition: none !important; }
+}

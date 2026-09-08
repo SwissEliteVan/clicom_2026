@@ -120,3 +120,45 @@ h1 span, h2 em { color: var(--cyan); font-style: normal; }
   .contact-tools-whatsapp span, .contact-tools-chat span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
   .contact-chat { width: min(365px, calc(100vw - 24px)); margin-bottom: 2px; }
 }
+
+/* Design system application layer: composition, states and anti-template rules. */
+.site-shell { background: var(--clicom-white); }
+.container { width: min(var(--container-max), calc(100% - (var(--container-gutter) * 2))); }
+.section { padding: var(--space-9) 0; }
+.section-heading h2, .problem-copy h2, .ia-copy h2, .audit-intro h2, .faq-grid h2 { font-family: var(--font-display); }
+.brand, .faq-item > button, .testimonial-quote blockquote { font-family: var(--font-display); }
+.announcement { background: var(--clicom-navy); color: var(--clicom-dark-text); }
+.site-header { border-bottom-color: color-mix(in srgb, var(--clicom-line) 70%, transparent); }
+.nav-new { color: var(--clicom-navy); background: color-mix(in srgb, var(--clicom-cyan) 22%, white); }
+.button {
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  transition: transform var(--motion-fast) var(--ease-out), box-shadow var(--motion-fast) var(--ease-out), background-color var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out);
+}
+.button:hover { box-shadow: var(--shadow-md); }
+.button:active { transform: translateY(0); }
+.button:disabled, .button[aria-disabled='true'] { cursor: not-allowed; opacity: .55; transform: none; box-shadow: none; }
+.button-outline { border-color: color-mix(in srgb, var(--clicom-slate) 55%, white); }
+.button-outline:hover { background: color-mix(in srgb, var(--clicom-blue) 6%, white); }
+.button-cyan { color: var(--clicom-navy); }
+.hero-section, .ia-section, .contact-section, .site-footer { background: var(--clicom-navy); }
+.hero-section { color: var(--clicom-white); }
+.hero-section:after { background-image: linear-gradient(color-mix(in srgb, var(--clicom-white) 4%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--clicom-white) 4%, transparent) 1px, transparent 1px); }
+.hero-lead, .audit-intro > p, .contact-copy > p { color: var(--clicom-dark-text); }
+.hero-proof, .hero-proof strong { color: var(--clicom-muted-dark); }
+.contact-chat { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.contact-chat-header { background: var(--clicom-navy); }
+.contact-chat-actions a:hover { background: var(--clicom-mist); }
+.contact-tools-whatsapp { background: var(--clicom-success); }
+
+@media (max-width: 700px) {
+  .container { width: min(var(--container-max), calc(100% - 32px)); }
+  .section { padding: var(--space-8) 0; }
+  .announcement { flex-wrap: wrap; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .main-nav > a, .contact-tools-whatsapp, .contact-tools-chat, .contact-chat, .contact-chat-actions a, .faq-item > button svg {
+    transition: none !important;
+  }
+}

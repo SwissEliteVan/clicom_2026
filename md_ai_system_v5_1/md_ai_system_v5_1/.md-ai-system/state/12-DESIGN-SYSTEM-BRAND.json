@@ -1,10 +1,18 @@
 {
-  "activation_reason": "",
+  "activation_reason": "dependency 11 validated; visual system derived from DESIGN_SYSTEM.md, BRAND-DIFFERENTIATION.md and ART-DIRECTION.md",
   "applicability": "ACTIVE",
-  "approved_changes": [],
-  "authorized_files": [],
+  "approved_changes": [
+    "Centraliser les tokens de marque, typographie, spacing, grille, rayons, ombres et motion dans index.css.",
+    "Appliquer les tokens et les états interactifs aux compositions existantes de l'accueil et de Gouvernance IA.",
+    "Conserver la sous-identité Gouvernance IA navy/cyan et ses compositions spécifiques sans introduire de template générique."
+  ],
+  "authorized_files": [
+    "clicom-web/src/index.css",
+    "clicom-web/src/App.css",
+    "clicom-web/src/GovernancePage.css"
+  ],
   "category": "12-DESIGN-SYSTEM-BRAND",
-  "change_risk": null,
+  "change_risk": "FAIBLE",
   "current_cycle": {
     "base_validation_commit": null,
     "delta": {
@@ -15,9 +23,28 @@
     },
     "ia1": null,
     "ia2": null,
-    "ia3": null,
+    "ia3": {
+      "stage": "3-IA3-EXECUTION.md",
+      "status": "EXECUTED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "summary": "Tokens et couche d'application du design system CliCom ajoutés au runtime Vite/React existant; états, responsive, focus et réduction de mouvement alignés.",
+      "modifications": [
+        "Tokens couleur, typographie, spacing, grille, rayons, ombres et motion ajoutés dans index.css.",
+        "Compositions accueil et composants d'action alignés sur les tokens avec états hover, active, disabled et focus.",
+        "Sous-identité Gouvernance IA alignée sur la palette navy/cyan et les règles anti-template.",
+        "Responsive 360/768/1440 couvert par les conteneurs et seuils existants, avec ajustements mobile ciblés."
+      ],
+      "tests_executed": [
+        "npm run lint",
+        "npm run build",
+        "npm exec tsc -- --noEmit -p tsconfig.app.json",
+        "git diff --check"
+      ],
+      "blockers": []
+    },
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "3-IA3-EXECUTION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
