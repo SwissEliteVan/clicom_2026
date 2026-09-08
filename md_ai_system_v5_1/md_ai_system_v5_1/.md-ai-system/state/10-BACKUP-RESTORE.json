@@ -39,7 +39,7 @@
         "deployment_recovery": "En cas d'incident, redéployer le dernier commit sain via hPanel ; les sauvegardes Hostinger couvrent la restauration des fichiers.",
         "scope": "La stratégie doit couvrir DB, fichiers, Storage/uploads et configuration critique ; les e-mails, Resend, Cal.com et paramètres Stripe restent à préciser."
       },
-      "real_state": "Après réévaluation, le workspace ne contient toujours aucun package.json applicatif, environnement Supabase, workflow GitHub Action pg_dump, configuration Hostinger matérialisée, procédure automatisée de restauration ou preuve de test de restauration.",
+      "real_state": "Le workspace reste un doc-set sans package.json applicatif, environnement Supabase, workflow GitHub Action pg_dump, configuration Hostinger matérialisée, procédure automatisée de restauration ou preuve de test de restauration.",
       "gaps": [
         "Les durées de rétention, le nombre de générations et l'archivage ne sont toujours pas définis.",
         "Le chiffrement au repos et en transit, la gestion des clés et la séparation des accès ne sont toujours pas documentés.",
@@ -60,7 +60,8 @@
         "Aucun test de restauration réel possible ou prouvé.",
         "Aucun élément nouveau ne permet de lever les preuves obligatoires manquantes ; une décision ou une matérialisation opérationnelle est nécessaire avant une nouvelle IA2."
       ],
-      "risk_change": "ÉLEVÉ"
+      "risk_change": "ÉLEVÉ",
+      "recheck": "Réévaluation effectuée sur l'état du workspace et le commit courant : aucun artefact, accès, workflow, environnement ou preuve nouvelle ne permet de lever les bloqueurs IA2."
     },
     "ia2": {
       "stage": "2-IA2-VERIFICATION.md",
@@ -109,8 +110,8 @@
     "Aucun environnement Supabase connecté.",
     "Aucune destination externe de sauvegarde définie.",
     "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
-    "Aucun test réel de restauration possible ou prouvé.",
-    "Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé."
+    "Aucun test de restauration réel possible ou prouvé.",
+    "Aucun élément nouveau ne permet de lever les preuves obligatoires manquantes ; une décision ou une matérialisation opérationnelle est nécessaire avant une nouvelle IA2."
   ],
   "schema_version": "2.0",
   "status": "BLOQUÉ",
