@@ -61,15 +61,15 @@
       "validation_commit": null
     },
     "10-BACKUP-RESTORE": {
-      "applicability": "ACTIVE",
+      "applicability": "INACTIVE",
       "state_file": "state/10-BACKUP-RESTORE.json",
-      "status": "BLOQUÉ",
-      "validation_commit": null
+      "status": "VALIDATED",
+      "validation_commit": "9e3ec5e"
     },
     "11-MARKETING-BRAND-DIFFERENTIATION": {
       "applicability": "ACTIVE",
       "state_file": "state/11-MARKETING-BRAND-DIFFERENTIATION.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "12-DESIGN-SYSTEM-BRAND": {

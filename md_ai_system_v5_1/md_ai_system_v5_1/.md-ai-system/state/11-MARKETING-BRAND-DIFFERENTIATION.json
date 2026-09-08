@@ -1,5 +1,5 @@
 {
-  "activation_reason": "",
+  "activation_reason": "dependency 01 validated; marketing and brand requirements derived from active project documents",
   "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
@@ -13,22 +13,68 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE_CORRIGEE",
+      "mode": "CORRECTION",
+      "policy_profile": "PRODUCTION",
+      "summary": "Positionnement corrigé d après CONCEPT_BUSINESS.md, ROADMAP_MVP.md et SALES_PLAYBOOK.md",
+      "positionnement": "Service digital productisé pour PME suisses romandes (produit + accompagnement)",
+      "cibles": "PME suisses romandes (secteurs B2B, services, commerce)",
+      "modele_economique": "Mixte : abonnement SaaS + services associés (accompagnement, conseil, formation)",
+      "proposition_valeur": "Accompagnement digital global pour PME : outillage, conseil, formation",
+      "gaps": [
+        "Pas de direction artistique détaillée par page",
+        "Pas de landing page ou site vitrine existant",
+        "Pas d application implémentée pour illustrer l offre",
+        "Pas de cas client documenté"
+      ],
+      "blockers": []
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "validation": [
+        "Positionnement vérifié : service digital productisé pour PME suisses romandes - cohérent avec CONCEPT_BUSINESS.md",
+        "Cibles confirmées : PME suisses romandes (B2B, services, commerce) - aligné avec SALES_PLAYBOOK.md",
+        "Modèle économique vérifié : mixte SaaS + services associés - confirmé dans MONETISATION.md",
+        "Proposition de valeur : accompagnement digital global - cohérente avec ROADMAP_MVP.md",
+        "Gaps identifiés conservés : cas client, direction artistique, landing page, application"
+      ],
+      "contradictions": [],
+      "new_gaps": [
+        "Pas de direction artistique détaillée par page (sera traité en IA3)",
+        "Pas de landing page ou site vitrine existant",
+        "Pas d'application implémentée pour illustrer l'offre",
+        "Pas de cas client documenté"
+      ],
+      "blockers": [
+        "Aucune page marketing ou landing page disponible pour valider le positionnement visuel",
+        "Aucun cas client ou preuve sociale documentée"
+      ],
+      "risk_change": "FAIBLE",
+      "identite_propre": "Positionnement spécifique PME romandes, pas générique",
+      "contenu_generique_refuse": false
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
-    "mode": "NEW_WORK",
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
+    "mode": "CORRECTION",
     "revalidation_authorized_by_ia4": false,
-    "trigger": "initial"
+    "trigger": "ia2_refused_correction"
   },
   "dependencies": [
     "01-PROJECT-PROFILE-APPLICABILITY"
   ],
   "file_budget": null,
   "last_validation": null,
-  "open_blockers": [],
+  "open_blockers": [
+    "IA3 ne peut pas commencer tant que le positionnement et le modèle économique erronés de l'IA1 ne sont pas corrigés.",
+    "Une nouvelle IA1 est requise pour enregistrer une analyse cohérente avec les documents actifs avant toute production des artefacts marketing."
+  ],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDATED",
   "validation_commit": null
 }

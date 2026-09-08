@@ -14,8 +14,8 @@ Vue générée depuis les JSON. Ne pas éditer manuellement.
 | 7 | `07-ECOMMERCE-LIFECYCLE` | N/A | N/A | NEW_WORK | — | — |
 | 8 | `08-INTERNAL-APP-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
 | 9 | `09-API-BACKEND-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
-| 10 | `10-BACKUP-RESTORE` | ACTIVE | BLOQUÉ | CORRECTION | — | Aucun environnement Supabase connecté.; Aucune destination externe de sauvegarde définie.; Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.; Aucun test de restauration réel possible ou prouvé.; Aucun élément nouveau ne permet de lever les preuves obligatoires manquantes ; une décision ou une matérialisation opérationnelle est nécessaire avant une nouvelle IA2. |
-| 11 | `11-MARKETING-BRAND-DIFFERENTIATION` | ACTIVE | À FAIRE | NEW_WORK | — | — |
+| 10 | `10-BACKUP-RESTORE` | INACTIVE | INACTIVE | DEFERRED | — | Tests de restauration réels reportés à la phase de déploiement; Accès opérationnel requis pour la validation IA2 |
+| 11 | `11-MARKETING-BRAND-DIFFERENTIATION` | ACTIVE | VALIDATED | CORRECTION | — | IA3 ne peut pas commencer tant que le positionnement et le modèle économique erronés de l'IA1 ne sont pas corrigés.; Une nouvelle IA1 est requise pour enregistrer une analyse cohérente avec les documents actifs avant toute production des artefacts marketing. |
 | 12 | `12-DESIGN-SYSTEM-BRAND` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 13 | `13-DESIGN-NAVIGATION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 14 | `14-MULTILINGUE` | ACTIVE | À FAIRE | NEW_WORK | — | — |
