@@ -21,7 +21,7 @@ Vue générée depuis les JSON. Ne pas éditer manuellement.
 | 14 | `14-MULTILINGUE` | ACTIVE | VALIDATED | NEW_WORK | — | — |
 | 15 | `15-COPYWRITING-PERSUASION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 16 | `16-CONTENT-BLOG` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
-| 17 | `17-MEDIA-HERO-IMAGES-BLOG` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
+| 17 | `17-MEDIA-HERO-IMAGES-BLOG` | ACTIVE | BLOQUÉ | NEW_WORK | — | Dépendances 12-DESIGN-SYSTEM-BRAND et 16-CONTENT-BLOG non validées au moment de l'exécution.; IA4 non exécutée : le résultat n'est pas verrouillé dans la SOURCE OF TRUTH.; Droits et provenance de l'asset clicom-web/src/assets/hero.png à vérifier avant toute utilisation.; Mesures réelles LCP, CLS, contraste et réseau lent à réaliser sur les pages rendues. |
 | 18 | `18-ASSET-LICENSES` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 19 | `19-COMMERCIAL-FUNNEL-CONVERSION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 20 | `20-CRM-LEAD-LIFECYCLE` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |

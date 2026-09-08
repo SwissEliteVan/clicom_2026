@@ -105,7 +105,7 @@
     "17-MEDIA-HERO-IMAGES-BLOG": {
       "applicability": "ACTIVE",
       "state_file": "state/17-MEDIA-HERO-IMAGES-BLOG.json",
-      "status": null,
+      "status": "BLOQUÉ",
       "validation_commit": null
     },
     "18-ASSET-LICENSES": {

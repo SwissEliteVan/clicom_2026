@@ -1,8 +1,19 @@
 {
-  "activation_reason": "",
+  "activation_reason": "Audit média exécuté en mode Act avec documentation complète des routes réelles et prévues; les dépendances amont restent non validées.",
   "applicability": "ACTIVE",
-  "approved_changes": [],
-  "authorized_files": [],
+  "approved_changes": [
+    "Créer MEDIA-MANIFEST.md à la racine avec une fiche média par route et une association distincte article → médias.",
+    "Créer HERO-VIDEO-RULES.md avec les règles desktop/mobile, poster, formats, autoplay muted, reduced-motion, Save-Data, performance et fallback.",
+    "Créer MOTION-LIBRARIES.md avec l'inventaire des mécanismes présents et la décision de ne pas ajouter de bibliothèque d'animation."
+  ],
+  "authorized_files": [
+    "MEDIA-MANIFEST.md",
+    "HERO-VIDEO-RULES.md",
+    "MOTION-LIBRARIES.md",
+    "md_ai_system_v5_1/md_ai_system_v5_1/.md-ai-system/state/17-MEDIA-HERO-IMAGES-BLOG.json",
+    "md_ai_system_v5_1/md_ai_system_v5_1/.md-ai-system/STATE.json",
+    "md_ai_system_v5_1/md_ai_system_v5_1/.md-ai-system/STATE-OVERVIEW.md"
+  ],
   "category": "17-MEDIA-HERO-IMAGES-BLOG",
   "change_risk": null,
   "current_cycle": {
@@ -15,9 +26,36 @@
     },
     "ia1": null,
     "ia2": null,
-    "ia3": null,
+    "ia3": {
+      "stage": "3-IA3-EXECUTION.md",
+      "status": "EXECUTED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "summary": "Registre média, règles vidéo et inventaire motion créés sans ajouter de média binaire, de route ou de dépendance.",
+      "modifications": [
+        "MEDIA-MANIFEST.md documente les deux routes rendues, les routes prévues, l'asset hero.png non utilisé et les six associations article → variantes desktop/mobile/OG.",
+        "HERO-VIDEO-RULES.md encadre la décision conditionnelle d'un hero vidéo homepage, les formats WebM/MP4, poster, autoplay muted playsinline, reduced-motion, Save-Data, réseau lent, LCP et CLS.",
+        "MOTION-LIBRARIES.md inventorie CSS/React natifs et confirme l'absence de bibliothèque d'animation ajoutée.",
+        "Aucun média existant n'est présenté comme preuve commerciale et aucune licence inconnue n'est validée."
+      ],
+      "tests_executed": [
+        "Vérification Git initiale selon TEMPLATES/GIT-INJECTION-TEMPLATE.md",
+        "Inventaire des routes, assets et formats média du workspace",
+        "Vérification des dimensions et du poids de clicom-web/src/assets/hero.png",
+        "Vérification de présence des trois livrables et relecture finale",
+        "git diff --check",
+        "python TOOLS/state_overview.py",
+        "python TOOLS/next_prompt.py"
+      ],
+      "blockers": [
+        "12-DESIGN-SYSTEM-BRAND n'est pas au statut machine VALIDÉ.",
+        "16-CONTENT-BLOG n'est pas au statut machine VALIDÉ et aucun blog MDX n'est implémenté.",
+        "IA4 doit contrôler et verrouiller les décisions; 18-ASSET-LICENSES doit valider les droits avant publication.",
+        "Lighthouse, réseau lent, contraste automatisé et CLS réel restent à mesurer sur l'application rendue."
+      ]
+    },
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "3-IA3-EXECUTION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -28,8 +66,13 @@
   ],
   "file_budget": null,
   "last_validation": null,
-  "open_blockers": [],
+  "open_blockers": [
+    "Dépendances 12-DESIGN-SYSTEM-BRAND et 16-CONTENT-BLOG non validées au moment de l'exécution.",
+    "IA4 non exécutée : le résultat n'est pas verrouillé dans la SOURCE OF TRUTH.",
+    "Droits et provenance de l'asset clicom-web/src/assets/hero.png à vérifier avant toute utilisation.",
+    "Mesures réelles LCP, CLS, contraste et réseau lent à réaliser sur les pages rendues."
+  ],
   "schema_version": "2.0",
-  "status": null,
+  "status": "BLOQUÉ",
   "validation_commit": null
 }
