@@ -65,14 +65,14 @@ def next_stage_for(state):
         return None
     if status == "À_RÉÉVALUER":
         return STAGES[0]
+    if status in ("REFUSÉ", "BLOQUÉ"):
+        return STAGES[0]
     last = cycle.get("last_completed_stage")
     idx = stage_index(last)
     if idx < 0:
         return STAGES[0]
     if idx + 1 < len(STAGES):
         return STAGES[idx + 1]
-    if status in ("REFUSÉ", "BLOQUÉ"):
-        return STAGES[0]
     return None
 
 

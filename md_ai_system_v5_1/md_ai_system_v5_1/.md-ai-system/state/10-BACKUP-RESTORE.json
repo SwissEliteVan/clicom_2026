@@ -52,10 +52,40 @@
       ],
       "risk_change": "ÉLEVÉ"
     },
-    "ia2": null,
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "BLOQUÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "La stratégie documentaire couvre bien Supabase/PostgreSQL, Hostinger, Storage/uploads, fichiers et redéploiement du dernier commit sain.",
+        "Les fréquences documentées sont retrouvées indépendamment : Hostinger quotidien selon le plan, export Supabase hebdomadaire via pg_dump et exports Stripe mensuels mentionnés dans INFRA_COSTS.md.",
+        "L'état réel confirme l'absence de package.json, d'application, de workflow pg_dump, d'environnement Supabase, de configuration Hostinger et de preuve de restauration ; aucune implémentation ne peut être validée à cette étape.",
+        "Le périmètre IA2 exige une procédure de restauration et un test réel ; ces preuves ne sont pas disponibles dans le workspace."
+      ],
+      "contradictions": [
+        "L'analyse IA1 relevait que DEPLOYMENT_PIPELINE.md prévoit un export Supabase hebdomadaire et des sauvegardes Hostinger quotidiennes selon le plan, tandis qu'INFRA_COSTS.md ajoute des exports Stripe mensuels sans reprise dans la checklist de déploiement ; cette divergence est confirmée.",
+        "L'analyse IA1 relevait que la fréquence Hostinger dépend du plan souscrit ; aucune fréquence opérationnelle vérifiable n'est documentée, ce qui est confirmé.",
+        "L'analyse IA1 relevait que la sauvegarde Supabase hebdomadaire est prescrite sans workflow pg_dump ni environnement Supabase ; cette absence est confirmée."
+      ],
+      "new_gaps": [
+        "Aucune rétention, aucun nombre de générations, aucun archivage et aucune règle de suppression ne sont définis.",
+        "Aucun chiffrement détaillé, gestion de clés ou séparation des accès n'est documenté.",
+        "Aucune procédure vérifiable de restauration PostgreSQL, Storage, fichiers Hostinger ou configuration critique n'est disponible.",
+        "Aucun RPO/RTO, plan de disaster recovery, environnement de secours ou test de restauration n'est défini.",
+        "Les sauvegardes des e-mails, Resend, Cal.com et de la configuration Stripe ne sont pas intégrées à un plan global."
+      ],
+      "blockers": [
+        "Aucun environnement Supabase connecté.",
+        "Aucune destination externe de sauvegarde définie.",
+        "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
+        "Aucun test réel de restauration possible ou prouvé.",
+        "Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé."
+      ],
+      "risk_change": "ÉLEVÉ"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": "1-IA1-ANALYSE.md",
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -65,8 +95,14 @@
   ],
   "file_budget": null,
   "last_validation": null,
-  "open_blockers": [],
+  "open_blockers": [
+    "Aucun environnement Supabase connecté.",
+    "Aucune destination externe de sauvegarde définie.",
+    "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
+    "Aucun test réel de restauration possible ou prouvé.",
+    "Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé."
+  ],
   "schema_version": "2.0",
-  "status": "ANALYSE",
+  "status": "BLOQUÉ",
   "validation_commit": null
 }

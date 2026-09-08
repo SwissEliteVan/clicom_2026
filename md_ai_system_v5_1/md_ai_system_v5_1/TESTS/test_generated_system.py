@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+import importlib.util
 import unittest
 from pathlib import Path
 
@@ -25,6 +26,19 @@ class GeneratedSystemTests(unittest.TestCase):
         self.assertIn("git add -- <fichiers explicitement autorisés>", t)
         self.assertIn("Ne pas imposer `HEAD == origin/main` avant IA3", t)
         self.assertIn("Ne pas imposer `git fetch origin main` avant cette vérification initiale", t)
+
+    def test_blocked_category_restarts_correction_cycle(self):
+        path = ROOT / "TOOLS" / "next_prompt.py"
+        spec = importlib.util.spec_from_file_location("next_prompt", path)
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        state = {
+            "status": "BLOQUÉ",
+            "current_cycle": {"last_completed_stage": "2-IA2-VERIFICATION.md"},
+        }
+        self.assertEqual(module.next_stage_for(state), "1-IA1-ANALYSE.md")
 
 
 if __name__ == "__main__":
