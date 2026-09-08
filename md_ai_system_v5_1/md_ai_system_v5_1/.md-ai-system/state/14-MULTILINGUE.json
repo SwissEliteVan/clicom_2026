@@ -1,5 +1,5 @@
 {
-  "activation_reason": "",
+  "activation_reason": "dependency 04 validated; i18n requirements derived from active project documents",
   "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
@@ -13,11 +13,83 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
-    "ia3": null,
-    "ia4": null,
-    "last_completed_stage": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Conserver le français de Suisse romande comme langue visible de référence, conformément à AGENTS.md, CONTENT_SEO.md et CONCEPT_BUSINESS.md.",
+        "Organiser les textes, contenus éditoriaux, messages de formulaires et métadonnées de manière extensible pour permettre l ajout ultérieur d une langue sans refonte.",
+        "Définir avant implémentation la stratégie de routes/locales, le sélecteur de langue, les métadonnées, hreflang, canonical, Open Graph et les traductions de formulaires/messages.",
+        "Respecter l architecture Next.js App Router, les contenus éditoriaux MDX dans content/ et la séparation entre l application CliCom et les sites clients générés depuis des templates."
+      ],
+      "policy_profile": "PRODUCTION",
+      "documented_baseline": {
+        "primary_language": "français (Suisse romande)",
+        "documented_languages": [
+          "français (Suisse romande)"
+        ],
+        "additional_languages_requested_or_validated": [],
+        "locale_code": "non défini dans les documents actifs",
+        "route_strategy": "non définie",
+        "text_strategy": "contenus éditoriaux en MDX dans content/ ; stratégie de centralisation des chaînes UI non définie",
+        "seo_metadata": "métadonnées Next.js, sitemap, robots et données structurées prévus ; hreflang, canonical multilingue et OG par locale non définis",
+        "forms_and_messages": "règles de collecte minimale documentées ; traduction des formulaires et messages non définie",
+        "scope_boundary": "périmètre i18n entre l application CliCom centrale et les templates/sites clients non défini"
+      },
+      "real_state": "Le workspace contient uniquement la documentation projet et le système de pilotage. Aucun package.json, code source, route, composant, contenu MDX, configuration Next.js ou mécanisme i18n n est présent.",
+      "gaps": [
+        "Aucune langue secondaire n est demandée ou validée ; il faut éviter d en déduire une sans décision documentaire.",
+        "Aucune stratégie de routes/locales, de détection ou de sélection de langue n est verrouillée.",
+        "Aucun système de chaînes centralisées ni bibliothèque i18n n est choisi ; le package manager et le runtime applicatif ne sont pas matérialisés.",
+        "Les règles de génération des métadonnées, canonical, hreflang et Open Graph par langue restent à définir avec la catégorie SEO.",
+        "Le périmètre exact entre l application CliCom et les sites clients séparés doit être clarifié avant une implémentation commune."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "MOYEN"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "validation": [
+        "Langue de référence confirmée : français de Suisse romande (CONCEPT_BUSINESS.md, AGENTS.md)",
+        "Aucune langue secondaire documentée - ne pas en inventer",
+        "Stratégie i18n non définie - à traiter en implémentation (Next.js App Router)",
+        "Séparation CliCom centrale / templates clients documentée",
+        "Gaps identifiés : routes, chaînes, SEO localisé, périmètre central/templates"
+      ],
+      "contradictions": [],
+      "blockers": [
+        "Aucune implémentation i18n dans le workspace (normal à ce stade)"
+      ],
+      "risk_change": "MOYEN"
+    },
+    "ia3": {
+      "stage": "3-IA3-EXECUTION.md",
+      "status": "EXECUTED",
+      "mode": "NEW_WORK",
+      "artifacts_generated": [
+        "I18N_STRATEGY.md"
+      ]
+    },
+    "ia4": {
+      "stage": "4-IA4-CONTROLE.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "verification": [
+        "Langue de référence : français de Suisse romande - confirmée",
+        "Stratégie i18n : Next.js App Router - définie",
+        "Aucune langue secondaire inventée sans décision",
+        "Séparation CliCom centrale / templates clients - documentée",
+        "Prochaine étape : catégorie 15-COPYWRITING-PERSUASION"
+      ],
+      "blockers": []
+    },
+    "last_completed_stage": "4-IA4-CONTROLE.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +101,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDATED",
   "validation_commit": null
 }

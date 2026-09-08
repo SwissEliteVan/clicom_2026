@@ -14,10 +14,40 @@
       "to_commit": null
     },
     "ia1": null,
-    "ia2": null,
-    "ia3": null,
-    "ia4": null,
-    "last_completed_stage": null,
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "validation": [
+        "Tâches identifiées : sauvegardes, exports, notifications, nettoyage",
+        "Aucune implémentation présente (normal à ce stade)",
+        "Gaps documentés : queues, retry, verrouillage, logs, alertes"
+      ],
+      "blockers": []
+    },
+    "ia3": {
+      "stage": "3-IA3-EXECUTION.md",
+      "status": "EXECUTED",
+      "mode": "NEW_WORK",
+      "artifacts_generated": [
+        "CRON_JOBS_CONFIG.md"
+      ]
+    },
+    "ia4": {
+      "stage": "4-IA4-CONTROLE.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "verification": [
+        "Tâches planifiées : sauvegardes, exports, notifications, nettoyage",
+        "Configuration des tâches définie",
+        "Gaps documentés : queues, retry, verrouillage, logs, alertes",
+        "Prochaine étape : catégorie 27-COOKIE-CONSENT-PRIVACY"
+      ],
+      "blockers": []
+    },
+    "last_completed_stage": "4-IA4-CONTROLE.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +59,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDATED",
   "validation_commit": null
 }

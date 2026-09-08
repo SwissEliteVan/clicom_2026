@@ -87,7 +87,7 @@
     "14-MULTILINGUE": {
       "applicability": "ACTIVE",
       "state_file": "state/14-MULTILINGUE.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "15-COPYWRITING-PERSUASION": {
@@ -141,7 +141,7 @@
     "23-INTEGRATIONS": {
       "applicability": "ACTIVE",
       "state_file": "state/23-INTEGRATIONS.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "24-EMAIL-DNS": {
@@ -159,7 +159,7 @@
     "26-JOBS-CRON": {
       "applicability": "ACTIVE",
       "state_file": "state/26-JOBS-CRON.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "27-COOKIE-CONSENT-PRIVACY": {
@@ -201,7 +201,7 @@
     "33-DEPENDENCY-AUDIT": {
       "applicability": "ACTIVE",
       "state_file": "state/33-DEPENDENCY-AUDIT.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "34-PERFORMANCE": {
@@ -219,7 +219,7 @@
     "36-HEALTH-UPTIME": {
       "applicability": "ACTIVE",
       "state_file": "state/36-HEALTH-UPTIME.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "37-RESPONSIVE": {
@@ -243,7 +243,7 @@
     "40-ERRORS-RESILIENCE": {
       "applicability": "ACTIVE",
       "state_file": "state/40-ERRORS-RESILIENCE.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "41-CONTENT-GOVERNANCE": {
@@ -261,7 +261,7 @@
     "43-PLACEHOLDERS-CLEANUP": {
       "applicability": "ACTIVE",
       "state_file": "state/43-PLACEHOLDERS-CLEANUP.json",
-      "status": null,
+      "status": "VALIDATED",
       "validation_commit": null
     },
     "44-TESTING": {

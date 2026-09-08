@@ -1,0 +1,25 @@
+{
+  "name": "clicom_2026",
+  "version": "1.0.0",
+  "description": "Doc-set vibe coding de référence pour le projet CliCom — agence digitale productisée pour les PME de Suisse romande. **Version 2 — intégration du pilier Gouvernance IA.** Dernière mise à jour : 08.09.2026.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm --prefix clicom-web run dev",
+    "build": "npm --prefix clicom-web run build",
+    "lint": "npm --prefix clicom-web run lint",
+    "preview": "npm --prefix clicom-web run preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwissEliteVan/clicom_2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SwissEliteVan/clicom_2026/issues"
+  },
+  "homepage": "https://github.com/SwissEliteVan/clicom_2026#readme"
+}
