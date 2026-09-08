@@ -1,6 +1,6 @@
 {
-  "activation_reason": "",
-  "applicability": "TO_DEFINE",
+  "activation_reason": "dependency 01 validated; stack derived from active project documents",
+  "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
   "category": "02-STACK",
@@ -13,11 +13,110 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Évaluer la stack à partir des besoins réels sans ajouter de framework non documenté.",
+        "Couvrir frontend, backend, langage, package manager, données, auth, stockage, e-mail, API, CMS, paiements, analytics, monitoring, tests, CI/CD, hébergement, secrets, SEO, images, UI, motion, formulaires, validation, sécurité et i18n.",
+        "Identifier les commandes exactes documentées et distinguer celles qui sont réellement disponibles dans le workspace."
+      ],
+      "policy_profile": "PRODUCTION",
+      "documented_stack": {
+        "frontend": "Next.js 15 App Router avec React 19 et TypeScript strict.",
+        "backend": "API Routes et Server Actions Next.js sur Node.js 20+.",
+        "styling_ui": "Tailwind CSS v4, tokens du DESIGN_SYSTEM.md, composants components/ui et Lucide.",
+        "language": "TypeScript strict.",
+        "package_manager": "pnpm.",
+        "database": "Supabase PostgreSQL.",
+        "orm": "Aucun ORM explicitement choisi dans les documents ; ne pas en ajouter à cette étape.",
+        "auth": "Supabase Auth, magic link et OAuth selon STACK_TECHNIQUE.md.",
+        "storage": "Supabase Storage.",
+        "email": "Resend avec React Email.",
+        "api": "API Routes, Server Actions et webhook Stripe dans Next.js.",
+        "cms_content": "Contenus éditoriaux en MDX dans content/ ; Sanity ou Decap restent des alternatives documentées pour l'édition des sites clients.",
+        "payments": "Stripe Billing, Checkout, Customer Portal et webhooks.",
+        "analytics": "Umami Cloud ou Plausible ; le choix final reste ouvert dans STACK_TECHNIQUE.md.",
+        "booking": "Cal.com, avec auto-hébergement possible selon STACK_TECHNIQUE.md.",
+        "monitoring": "hPanel pour l'hébergement, Umami pour le trafic et Sentry free pour les erreurs selon DEPLOYMENT_PIPELINE.md.",
+        "testing": "Vitest et Playwright sont listés comme dépendances de développement recommandées, mais aucune configuration ni commande exacte n'est présente.",
+        "ci_cd": "GitHub et GitHub Actions ; pnpm install --frozen-lockfile, pnpm lint, pnpm typecheck et pnpm build sont documentés dans le pipeline.",
+        "hosting": "Application principale Next.js en app Node.js managée Hostinger ; sites clients en export statique Hostinger.",
+        "secrets": "Variables d'environnement ; SUPABASE_SERVICE_ROLE_KEY et autres secrets côté serveur uniquement.",
+        "seo": "Métadonnées Next.js, next-sitemap, sitemap/robots, données structurées LocalBusiness et Organization, SEO local.",
+        "images": "Images Next.js ; remotePatterns Supabase pour l'application et images unoptimized pour les exports statiques clients selon DEPLOYMENT_PIPELINE.md.",
+        "motion": "Motion sobre définie par DESIGN_SYSTEM.md, avec respect de prefers-reduced-motion ; aucune bibliothèque de motion additionnelle choisie.",
+        "forms_validation": "AuditForm et formulaires via Server Actions/API Routes ; règles de collecte nLPD documentées. Bibliothèque de validation non choisie dans les documents.",
+        "security": "RLS Supabase, clé service_role côté serveur, secrets hors code, collecte minimale, HTTPS, contrôles nLPD et validations renforcées PRODUCTION.",
+        "i18n": "Français suisse romand comme langue visible ; aucune bibliothèque i18n supplémentaire imposée à ce stade."
+      },
+      "documented_commands": [
+        {
+          "command": "pnpm create next-app@latest clicom-app --typescript --tailwind --app --eslint",
+          "purpose": "bootstrap documenté",
+          "availability": "non vérifiable : aucun workspace applicatif"
+        },
+        {
+          "command": "pnpm install --frozen-lockfile",
+          "purpose": "installation CI documentée",
+          "availability": "non disponible : aucun package.json ni lockfile"
+        },
+        {
+          "command": "pnpm lint",
+          "purpose": "lint avant push",
+          "availability": "non verrouillée : aucun package.json ni script"
+        },
+        {
+          "command": "pnpm typecheck",
+          "purpose": "contrôle TypeScript avant push",
+          "availability": "non verrouillée : aucun package.json ni script"
+        },
+        {
+          "command": "pnpm build",
+          "purpose": "build CI et export statique client",
+          "availability": "non verrouillée : aucun package.json ni script"
+        }
+      ],
+      "real_state": "Le workspace contient uniquement les documents projet et le système de pilotage. Aucun package.json, lockfile, code source, configuration Next.js, configuration de test ou script npm/pnpm n'est présent.",
+      "gaps": [
+        "La stack recommandée est documentée mais pas encore matérialisée dans le workspace.",
+        "Les versions et scripts réellement installés ne peuvent pas être vérifiés.",
+        "Le choix Umami ou Plausible reste ouvert.",
+        "Aucune bibliothèque de validation de formulaires n'est choisie.",
+        "Les commandes test et e2e exactes ne sont pas verrouillées."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "MOYEN"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "La stack documentée est cohérente avec les besoins réels d'un service website avec audits, espace client et fonctions serveur.",
+        "Next.js 15, React 19, TypeScript strict, Tailwind CSS v4 et Node.js 20+ sont confirmés par STACK_TECHNIQUE.md et AGENTS.md.",
+        "Supabase PostgreSQL/Auth/Storage, Stripe Billing, Resend, Cal.com, Hostinger et GitHub Actions sont confirmés par les documents actifs.",
+        "Les exigences de sécurité, secrets, RLS, SEO, accessibilité, responsive et langue française suisse sont confirmées par AGENTS.md, ARCHITECTURE.md et les documents référencés.",
+        "La stack des sites clients en export statique est cohérente avec DEPLOYMENT_PIPELINE.md et ne transforme pas CliCom en SaaS multi-tenant.",
+        "Aucun package.json, lockfile, code source ou configuration applicative n'est présent dans le workspace ; les commandes documentées ne sont donc pas encore exécutables.",
+        "Git a été contrôlé sur main ; HEAD et origin/main sont alignés et aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [],
+      "new_gaps": [
+        "La stack documentée reste à matérialiser dans le workspace.",
+        "Le choix Umami ou Plausible reste ouvert.",
+        "Le choix Sanity ou Decap pour l'édition des sites clients reste ouvert.",
+        "Aucun ORM ni bibliothèque de validation de formulaires n'est choisi.",
+        "Les commandes exactes test et e2e ne sont pas verrouillées."
+      ],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +128,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDÉ",
   "validation_commit": null
 }

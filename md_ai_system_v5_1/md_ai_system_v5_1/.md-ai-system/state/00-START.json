@@ -13,11 +13,82 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Identifier le point d'entrée documentaire sans scanner tout le dépôt.",
+        "Identifier les documents actifs et suivre leurs références.",
+        "Établir l'ordre de travail documentaire.",
+        "Ne proposer aucune stack à cette étape."
+      ],
+      "real_state": "Le workspace contient le doc-set CliCom et le système de pilotage md_ai_system_v5_1. Aucun code applicatif, manifeste de dépendances ou arborescence d'application n'est présent.",
+      "documentary_entrypoint": "README.md",
+      "active_documents": [
+        "AGENTS.md",
+        "ARCHITECTURE.md",
+        "CONCEPT_BUSINESS.md",
+        "CONTENT_SEO.md",
+        "DEPLOYMENT_PIPELINE.md",
+        "DEPLOYMENT.md",
+        "DESIGN_SYSTEM.md",
+        "INFRA_COSTS.md",
+        "KPI_GROWTH.md",
+        "LEGAL_CONFORMITE.md",
+        "MONETISATION.md",
+        "ONBOARDING_LIVRAISON.md",
+        "README.md",
+        "ROADMAP_MVP.md",
+        "SALES_PLAYBOOK.md",
+        "SERVICE_GOUVERNANCE_IA.md",
+        "SOURCES_REFERENCES.md",
+        "STACK_TECHNIQUE.md"
+      ],
+      "documentary_work_order": [
+        "CONCEPT_BUSINESS.md",
+        "SERVICE_GOUVERNANCE_IA.md et MONETISATION.md",
+        "ROADMAP_MVP.md",
+        "CONTENT_SEO.md et DESIGN_SYSTEM.md",
+        "ARCHITECTURE.md, STACK_TECHNIQUE.md, DEPLOYMENT_PIPELINE.md et AGENTS.md",
+        "SALES_PLAYBOOK.md et ONBOARDING_LIVRAISON.md",
+        "KPI_GROWTH.md, INFRA_COSTS.md, LEGAL_CONFORMITE.md et SOURCES_REFERENCES.md"
+      ],
+      "source_of_truth": "Aucun fichier projet nommé SOURCE OF TRUTH n'est présent. README.md sert d'index ; ROADMAP_MVP.md porte l'ordre de construction ; ARCHITECTURE.md, STACK_TECHNIQUE.md, DEPLOYMENT_PIPELINE.md et AGENTS.md portent les décisions techniques et les règles d'agent ; LEGAL_CONFORMITE.md et SOURCES_REFERENCES.md portent le cadre légal et ses sources.",
+      "gaps": [
+        "L'application cible décrite par la documentation n'est pas encore implémentée dans le workspace.",
+        "Aucun fichier de dépendances ou de configuration applicative n'est présent à la racine.",
+        "La matrice d'applicabilité des catégories n'est pas encore établie."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "README.md est confirmé comme point d'entrée documentaire.",
+        "L'ordre documentaire du README est cohérent avec les références du doc-set.",
+        "Le workspace contient 17 fichiers .md de projet hors README.md et aucun fichier applicatif ou manifeste de dépendances.",
+        "Les contrôles Git requis ont été effectués sur main ; HEAD et origin/main sont alignés.",
+        "Aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [
+        "IA1 annonçait 17 documents actifs tout en incluant README.md dans sa liste de 18 chemins ; le README annonce 17 fichiers de contenu hors README.md.",
+        "Le tableau d'inventaire du README liste 16 documents et omet DEPLOYMENT.md, qui est pourtant conservé comme alias de compatibilité."
+      ],
+      "new_gaps": [
+        "La matrice d'applicabilité des catégories reste à établir.",
+        "L'application cible décrite par les documents reste absente du workspace."
+      ],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -27,6 +98,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDÉ",
   "validation_commit": null
 }

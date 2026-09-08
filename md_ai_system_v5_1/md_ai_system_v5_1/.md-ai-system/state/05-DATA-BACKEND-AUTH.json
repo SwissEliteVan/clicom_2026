@@ -1,6 +1,6 @@
 {
-  "activation_reason": "",
-  "applicability": "TO_DEFINE",
+  "activation_reason": "dependency 04 validated; data, backend and auth requirements derived from active project documents",
+  "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
   "category": "05-DATA-BACKEND-AUTH",
@@ -13,11 +13,87 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Définir les modèles de données nécessaires, les migrations, les API, les permissions, les sessions/auth, la validation, les transactions et la stratégie de migration.",
+        "Ne prévoir aucun backend, auth ou DB qui ne soit pas justifié par les documents actifs.",
+        "Traiter les migrations destructives avec le contrôle de risque renforcé."
+      ],
+      "policy_profile": "PRODUCTION",
+      "documented_data_model": {
+        "database": "Supabase PostgreSQL.",
+        "tables": [
+          "leads",
+          "clients",
+          "projects",
+          "subscriptions",
+          "ai_tools_registry"
+        ],
+        "relationships": [
+          "clients.lead_id référence leads.id.",
+          "clients.user_id référence auth.users.id.",
+          "projects.client_id référence clients.id.",
+          "subscriptions.client_id référence clients.id.",
+          "ai_tools_registry.project_id référence projects.id."
+        ],
+        "lead_fields": "Les documents prévoient id, created_at, type, company, email, phone, canton, source, status, audit_result et score selon ARCHITECTURE.md.",
+        "project_fields": "Les documents prévoient type, plan, status, due_date, hours_logged et created_at selon ARCHITECTURE.md ; DEPLOYMENT_PIPELINE.md présente une variante abrégée.",
+        "subscription_source_of_truth": "Stripe est la source de vérité ; Supabase conserve une vue opérationnelle.",
+        "rls": "RLS requise sur toutes les tables ; un client ne lit que ses propres projets et abonnements selon ARCHITECTURE.md.",
+        "data_minimization": "Formulaires d'audit : e-mail et entreprise, point ; aucune donnée personnelle sensible dans le questionnaire."
+      },
+      "backend_and_auth": {
+        "server_logic": [
+          "Server Actions pour audit digital et Audit IA Express.",
+          "API route webhook Stripe.",
+          "Supabase SSR côté serveur."
+        ],
+        "auth": "Supabase Auth avec magic link et OAuth selon STACK_TECHNIQUE.md ; espace client protégé.",
+        "audit_flow": "Formulaire → Server Action → leads Supabase → e-mail Resend avec résumé/PDF → analytics.",
+        "scoring": "Audit digital : 8 questions et score /100 ; Audit IA Express : 6 questions, score de maturité, risque et recommandations.",
+        "permissions": "RLS et user_id doivent limiter l'accès client à ses propres données ; les secrets service_role restent côté serveur.",
+        "payments": "Stripe Checkout, Customer Portal et webhooks ; prix relus depuis Stripe ou les variables d'environnement, jamais codés en dur.",
+        "validation": "Validation des formulaires nécessaire, mais bibliothèque non choisie dans les documents.",
+        "transactions": "Les opérations lead, client, projet et abonnement devront préserver les relations et l'idempotence des webhooks ; détail à préciser avant implémentation.",
+        "migration_strategy": "Créer des migrations versionnées non destructives en premier ; aucune migration destructive n'est autorisée sans contrôle renforcé."
+      },
+      "environment_and_secrets": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "STRIPE_SECRET_KEY",
+        "STRIPE_WEBHOOK_SECRET",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+        "RESEND_API_KEY",
+        "EMAIL_FROM",
+        "NEXT_PUBLIC_SITE_URL"
+      ],
+      "real_state": "Le workspace ne contient aucun package.json, code backend, client Supabase, middleware, Server Action, route webhook, migration SQL, configuration Auth ou .env.example hors système de pilotage.",
+      "documented_commands": [
+        "Aucune commande de migration ou de test backend n'est réellement exécutable tant que le bootstrap n'est pas matérialisé.",
+        "Les commandes générales pnpm lint, pnpm typecheck et pnpm build sont documentées mais aucun script n'existe encore."
+      ],
+      "gaps": [
+        "Les tables, migrations, politiques RLS et clients Supabase restent à implémenter.",
+        "La configuration Auth, les sessions, les permissions détaillées et le middleware restent à implémenter.",
+        "La validation de formulaires et l'idempotence des webhooks restent à spécifier.",
+        "Aucun environnement Supabase réel n'est connecté au workspace."
+      ],
+      "contradictions": [
+        "ARCHITECTURE.md décrit un schéma leads avec type et score, tandis que le SQL abrégé de DEPLOYMENT_PIPELINE.md omet ces champs.",
+        "ARCHITECTURE.md exige RLS sur toutes les tables et décrit une politique client ; le SQL de DEPLOYMENT_PIPELINE.md ne montre explicitement que l'activation RLS de leads et laisse les politiques en commentaire.",
+        "ARCHITECTURE.md ajoute user_id et created_at à plusieurs modèles, alors que les extraits SQL de DEPLOYMENT_PIPELINE.md sont abrégés et ne reprennent pas tous ces champs."
+      ],
+      "blockers": [],
+      "risk_change": "ÉLEVÉ"
+    },
     "ia2": null,
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "1-IA1-ANALYSE.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +105,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "ANALYSE",
   "validation_commit": null
 }

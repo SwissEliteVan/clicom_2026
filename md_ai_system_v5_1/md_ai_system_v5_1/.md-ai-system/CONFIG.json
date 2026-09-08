@@ -1,5 +1,7 @@
 {
-  "policy_profile": null,
-  "project_profiles": [],
+  "policy_profile": "PRODUCTION",
+  "project_profiles": [
+    "website"
+  ],
   "schema_version": "2.0"
 }

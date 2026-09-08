@@ -1,6 +1,6 @@
 {
-  "activation_reason": "",
-  "applicability": "TO_DEFINE",
+  "activation_reason": "dependency 02 validated; bootstrap requirements derived from active project documents",
+  "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
   "category": "03-BOOTSTRAP",
@@ -13,11 +13,89 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Après validation de la stack, préparer l'initialisation du package manager, du lockfile, du .gitignore, du .env.example, des scripts, des configurations et de la structure minimale.",
+        "Vérifier les versions et compatibilités sans exécuter encore le bootstrap produit.",
+        "Respecter l'arborescence ARCHITECTURE.md et les contraintes Hostinger."
+      ],
+      "policy_profile": "PRODUCTION",
+      "documented_bootstrap": {
+        "package_manager": "pnpm",
+        "bootstrap_command": "pnpm create next-app@latest clicom-app --typescript --tailwind --app --eslint",
+        "runtime": "Node.js 20+",
+        "framework": "Next.js 15 App Router",
+        "language": "TypeScript strict",
+        "react": "React 19",
+        "styling": "Tailwind CSS v4",
+        "server_config": "next.config.mjs ou next.config.ts exportant un objet ; pas de next.config.cjs ; pas de output export pour l'application principale",
+        "application_structure": [
+          "app/(marketing)/",
+          "app/(app)/espace/",
+          "app/actions/",
+          "app/api/webhooks/",
+          "components/ui/",
+          "components/marketing/",
+          "components/forms/",
+          "content/",
+          "lib/",
+          "templates/"
+        ],
+        "environment_file": ".env.example avec variables Supabase, Stripe, Resend et NEXT_PUBLIC_SITE_URL",
+        "quality_scripts": [
+          "pnpm lint",
+          "pnpm typecheck",
+          "pnpm build"
+        ],
+        "test_dependencies": [
+          "vitest ^2",
+          "@playwright/test ^1.49"
+        ],
+        "hosting": "Application principale en app Node.js managée Hostinger ; sites clients en export statique séparé."
+      },
+      "real_state": "Le workspace ne contient aucun package.json, pnpm-lock.yaml, .gitignore, .env.example, tsconfig.json, configuration Next.js, code source, script ou dossier applicatif hors md_ai_system_v5_1.",
+      "compatibility_checks": [
+        "La version Node.js locale et pnpm ne sont pas vérifiables par un manifeste applicatif absent.",
+        "Aucune commande lint, typecheck, test, e2e ou build n'est actuellement exécutable dans le workspace.",
+        "Les versions documentées sont cohérentes entre STACK_TECHNIQUE.md, DEPLOYMENT_PIPELINE.md et AGENTS.md."
+      ],
+      "gaps": [
+        "Le bootstrap n'est pas encore matérialisé.",
+        "Les versions réellement installées et le lockfile restent à créer.",
+        "Le choix Umami/Plausible et les outils de validation de formulaires restent ouverts depuis la catégorie STACK."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "MOYEN"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "Les exigences de bootstrap sont cohérentes avec la stack validée et les besoins du projet website.",
+        "Le package manager pnpm, le bootstrap Next.js 15, Node.js 20+, React 19, TypeScript strict et Tailwind CSS v4 sont confirmés par les documents actifs.",
+        "La structure app/, components/, content/, lib/ et templates/ reprend ARCHITECTURE.md et DEPLOYMENT_PIPELINE.md.",
+        "Les contraintes Hostinger sont confirmées : configuration Next.js exportant un objet, absence de next.config.cjs, mode serveur pour l'application principale et export statique séparé pour les sites clients.",
+        "Les variables .env.example et les scripts de qualité pnpm lint, pnpm typecheck et pnpm build sont correctement identifiés.",
+        "Le workspace ne contient encore aucun package.json, lockfile, configuration, script ou structure applicative ; aucun bootstrap produit n'a donc été exécuté à cette étape.",
+        "Git a été contrôlé sur main ; HEAD et origin/main sont alignés et aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [],
+      "new_gaps": [
+        "Les versions réellement installées et la compatibilité runtime ne pourront être vérifiées qu'après matérialisation du projet.",
+        "Le lockfile, les scripts et les configurations restent à créer pendant IA3/IA4.",
+        "Les choix Umami/Plausible et validation de formulaires restent ouverts depuis 02-STACK."
+      ],
+      "blockers": [],
+      "risk_change": "MOYEN"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +107,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDÉ",
   "validation_commit": null
 }

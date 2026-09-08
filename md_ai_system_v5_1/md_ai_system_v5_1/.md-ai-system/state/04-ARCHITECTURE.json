@@ -1,6 +1,6 @@
 {
-  "activation_reason": "",
-  "applicability": "TO_DEFINE",
+  "activation_reason": "dependency 03 validated; architecture derived from active project documents",
+  "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
   "category": "04-ARCHITECTURE",
@@ -13,11 +13,108 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Définir l'architecture sans surarchitecture ni duplication.",
+        "Couvrir dossiers, routes, composants, modules, services, états, erreurs, logging, variables d'environnement, feature flags si applicables et intégrations.",
+        "Respecter les décisions documentaires de l'architecture cible, de la stack, du bootstrap et des règles d'agent."
+      ],
+      "policy_profile": "PRODUCTION",
+      "architecture_target": {
+        "application_model": "Application CliCom centrale non multi-tenant ; les sites clients sont des projets séparés générés depuis des templates.",
+        "runtime": "Next.js 15 App Router en Node.js managé Hostinger pour l'application principale.",
+        "marketing_routes": [
+          "app/(marketing)/page.tsx",
+          "app/(marketing)/sites-web/page.tsx",
+          "app/(marketing)/seo-local/page.tsx",
+          "app/(marketing)/automatisation-crm/page.tsx",
+          "app/(marketing)/gouvernance-ia/page.tsx",
+          "app/(marketing)/audit/page.tsx",
+          "app/(marketing)/audit-ia/page.tsx",
+          "app/(marketing)/tarifs/page.tsx",
+          "app/(marketing)/a-propos/page.tsx",
+          "app/(marketing)/temoignages/page.tsx",
+          "app/(marketing)/blog/"
+        ],
+        "client_routes": [
+          "app/(app)/espace/page.tsx",
+          "app/(app)/espace/projet/[id]/page.tsx",
+          "app/(app)/espace/abonnement/page.tsx"
+        ],
+        "server_logic": [
+          "app/actions/audit.ts",
+          "app/actions/audit-ia.ts",
+          "app/api/webhooks/stripe/route.ts"
+        ],
+        "components": [
+          "components/ui/ pour le design system réutilisable",
+          "components/marketing/ pour les sections de pages",
+          "components/forms/ pour les formulaires d'audit"
+        ],
+        "content": "content/ pour les articles blog et contenus éditoriaux MDX.",
+        "libraries": [
+          "lib/supabase/",
+          "lib/stripe.ts",
+          "lib/resend.ts",
+          "lib/scoring.ts"
+        ],
+        "templates": "templates/ pour artisan, praticien, commerce et pme-services ; sites clients séparés et export statique.",
+        "data": "Supabase PostgreSQL avec tables leads, clients, projects, subscriptions et ai_tools_registry ; RLS activée.",
+        "integrations": [
+          "Supabase Auth, Database et Storage",
+          "Stripe Billing et webhooks",
+          "Resend",
+          "Umami ou Plausible",
+          "Cal.com"
+        ],
+        "states": "Statuts leads et projets conservés dans Supabase ; aucun état business dans des fichiers.",
+        "errors_logging": "À définir dans les catégories erreurs/résilience et monitoring ; aucune donnée personnelle dans les logs.",
+        "environment": ".env.example et variables d'environnement pour Supabase, Stripe, Resend et URL publique ; service_role côté serveur uniquement.",
+        "feature_flags": "Aucun feature flag explicitement requis par les documents à cette étape.",
+        "security": "RLS, SSR Supabase, secrets hors code, collecte minimale, Server Components par défaut et contrôles nLPD.",
+        "seo_accessibility": "Métadonnées, sitemap, données structurées, composants du design system, contrastes AA, labels et focus visible."
+      },
+      "real_state": "Le workspace ne contient encore aucune application, aucun dossier app/components/content/lib/templates, aucun package.json et aucune configuration runtime hors système de pilotage.",
+      "gaps": [
+        "L'architecture cible n'est pas matérialisée dans le code.",
+        "Les détails d'erreurs, logging, monitoring et validation des formulaires restent à traiter dans leurs catégories dédiées.",
+        "Les choix Umami/Plausible et CMS client Sanity/Decap restent ouverts.",
+        "Le schéma Supabase documenté n'est pas encore exécuté dans un projet réel."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "MOYEN"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "Les routes marketing, l'espace client et les Server Actions/webhook correspondent à ARCHITECTURE.md.",
+        "La séparation de l'application CliCom centrale et des sites clients séparés est confirmée ; aucune architecture multi-tenant n'est introduite.",
+        "La structure app/, components/ui, components/marketing, components/forms, content/, lib/ et templates/ est confirmée par ARCHITECTURE.md et DEPLOYMENT_PIPELINE.md.",
+        "Supabase porte les données, l'authentification et le stockage ; Stripe porte la source de vérité des abonnements ; Resend porte les e-mails.",
+        "Les règles de données business, RLS, secrets serveur, Server Components et contenus MDX sont cohérentes avec AGENTS.md.",
+        "Les routes d'audit, le scoring /100 et le flux Server Action vers leads puis Resend sont confirmés par ARCHITECTURE.md.",
+        "Le workspace ne contient encore aucune implémentation applicative ; l'architecture vérifiée reste une cible documentaire et aucun code n'a été créé à cette étape.",
+        "Git a été contrôlé sur main ; HEAD et origin/main sont alignés et aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [],
+      "new_gaps": [
+        "Les dossiers, routes, composants, modules, services et configurations restent à matérialiser.",
+        "Les détails d'erreurs, logging, monitoring et validation des formulaires restent à préciser dans les catégories dédiées.",
+        "Le choix Umami/Plausible et CMS client Sanity/Decap reste ouvert.",
+        "Le schéma Supabase et les politiques RLS restent à exécuter dans un environnement réel."
+      ],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +126,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDÉ",
   "validation_commit": null
 }

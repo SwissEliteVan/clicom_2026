@@ -1,5 +1,5 @@
 {
-  "activation_reason": "system entrypoint",
+  "activation_reason": "documentary classification: website active; conditional profiles evaluated",
   "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
@@ -13,11 +13,75 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
-    "ia2": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Classifier le projet selon les documents réels.",
+        "Construire et maintenir la matrice d'applicabilité.",
+        "Justifier toute activation ou non-applicabilité.",
+        "Lire le POLICY_PROFILE depuis CONFIG.json sans le deviner."
+      ],
+      "policy_profile": "PRODUCTION",
+      "project_profiles": {
+        "website": {
+          "applicability": "ACTIVE",
+          "justification": "Le produit central est un service digital avec site vitrine, pages de services, SEO, contenu et audits générateurs de leads."
+        },
+        "saas": {
+          "applicability": "N/A",
+          "justification": "ROADMAP_MVP.md précise que CliCom est un service productisé avec une couche d'automatisation, pas un SaaS pur."
+        },
+        "ecommerce": {
+          "applicability": "N/A",
+          "justification": "Les documents décrivent des paiements Stripe pour setups et abonnements, sans catalogue ni parcours e-commerce."
+        },
+        "internal_app": {
+          "applicability": "N/A",
+          "justification": "L'espace client et le tableau de bord interne sont des fonctions secondaires du service, pas le profil produit principal."
+        },
+        "api_backend": {
+          "applicability": "N/A",
+          "justification": "Les API routes, Server Actions et webhooks sont des mécanismes techniques internes, pas une API vendue comme produit autonome."
+        }
+      },
+      "real_state": "Le workspace contient le doc-set et le système de pilotage, mais pas encore l'application cible ni ses fichiers d'exécution.",
+      "applicability_matrix": ".md-ai-system/APPLICABILITY.md",
+      "active_categories": "Toutes les catégories MANIFEST.json dont project_profiles contient all, plus les catégories website-transversales ; les quatre catégories conditionnelles saas/ecommerce/internal_app/api_backend sont N/A.",
+      "gaps": [
+        "L'application cible reste à construire dans le workspace.",
+        "Les catégories actives nécessiteront leur cycle IA1→IA4 dans l'ordre du DAG."
+      ],
+      "contradictions": [],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
+    "ia2": {
+      "stage": "2-IA2-VERIFICATION.md",
+      "status": "VALIDÉ",
+      "mode": "NEW_WORK",
+      "validation": [
+        "Le profil website est confirmé par le positionnement, le site vitrine, le SEO, le contenu et les audits documentés.",
+        "Le profil saas est confirmé N/A par la décision explicite de ROADMAP_MVP.md : CliCom est un service productisé, pas un SaaS pur.",
+        "Le profil ecommerce est confirmé N/A : aucun catalogue ni parcours e-commerce n'est documenté ; Stripe couvre les setups et abonnements.",
+        "Le profil internal_app est confirmé N/A : l'espace client et le tableau de bord interne sont des fonctions secondaires du service.",
+        "Le profil api_backend est confirmé N/A : les API routes, Server Actions et webhooks sont des mécanismes internes, pas un produit API autonome.",
+        "La matrice APPLICABILITY.md couvre exactement les 54 catégories du MANIFEST.json et reprend leurs dépendances.",
+        "CONFIG.json contient explicitement POLICY_PROFILE=PRODUCTION et PROJECT_PROFILE=website.",
+        "La dépendance 00-START est VALIDÉE ; main, HEAD et origin/main sont alignés et aucune opération Git concurrente n'est en cours."
+      ],
+      "contradictions": [],
+      "new_gaps": [
+        "L'application cible et ses fichiers d'exécution restent absents du workspace.",
+        "Les catégories actives devront être traitées selon le DAG avant toute conclusion de clôture."
+      ],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "2-IA2-VERIFICATION.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +93,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "VALIDÉ",
   "validation_commit": null
 }
