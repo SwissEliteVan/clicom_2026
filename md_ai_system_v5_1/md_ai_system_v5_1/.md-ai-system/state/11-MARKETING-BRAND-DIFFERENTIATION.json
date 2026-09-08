@@ -58,9 +58,33 @@
       "identite_propre": "Positionnement spécifique PME romandes, pas générique",
       "contenu_generique_refuse": false
     },
-    "ia3": null,
-    "ia4": null,
-    "last_completed_stage": "2-IA2-VERIFICATION.md",
+    "ia3": {
+      "stage": "3-IA3-EXECUTION.md",
+      "status": "EXECUTED",
+      "mode": "NEW_WORK",
+      "artifacts_generated": [
+        "MARKETING-STRATEGY.md",
+        "BRAND-DIFFERENTIATION.md",
+        "ART-DIRECTION.md",
+        "MESSAGING.md"
+      ]
+    },
+    "ia4": {
+      "stage": "4-IA4-CONTROLE.md",
+      "status": "VALIDATED",
+      "mode": "NEW_WORK",
+      "policy_profile": "PRODUCTION",
+      "verification": [
+        "Identité propre : positionnement spécifique PME suisses romandes, pas générique",
+        "Hero spécifique : intention définie pour chaque page (ART-DIRECTION.md)",
+        "Compositions distinctes : chaque page a une intention visuelle différente",
+        "Contenu non copiable : spécifique à CliCom, pas générique",
+        "Cohérence documentaire confirmée avec CONCEPT_BUSINESS.md"
+      ],
+      "blockers": [],
+      "risk_change": "FAIBLE"
+    },
+    "last_completed_stage": "4-IA4-CONTROLE.md",
     "mode": "CORRECTION",
     "revalidation_authorized_by_ia4": false,
     "trigger": "ia2_refused_correction"
