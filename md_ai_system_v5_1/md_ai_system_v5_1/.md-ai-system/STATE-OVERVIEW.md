@@ -14,7 +14,7 @@ Vue générée depuis les JSON. Ne pas éditer manuellement.
 | 7 | `07-ECOMMERCE-LIFECYCLE` | N/A | N/A | NEW_WORK | — | — |
 | 8 | `08-INTERNAL-APP-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
 | 9 | `09-API-BACKEND-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
-| 10 | `10-BACKUP-RESTORE` | ACTIVE | BLOQUÉ | NEW_WORK | — | Aucun environnement Supabase connecté.; Aucune destination externe de sauvegarde définie.; Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.; Aucun test réel de restauration possible ou prouvé.; Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé. |
+| 10 | `10-BACKUP-RESTORE` | ACTIVE | BLOQUÉ | CORRECTION | — | Aucun environnement Supabase connecté.; Aucune destination externe de sauvegarde définie.; Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.; Aucun test réel de restauration possible ou prouvé.; Les preuves obligatoires de restauration et de reprise après sinistre manquent ; IA3 ne peut pas commencer sans décision/documentation opérationnelle et environnement contrôlé. |
 | 11 | `11-MARKETING-BRAND-DIFFERENTIATION` | ACTIVE | À FAIRE | NEW_WORK | — | — |
 | 12 | `12-DESIGN-SYSTEM-BRAND` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 13 | `13-DESIGN-NAVIGATION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
