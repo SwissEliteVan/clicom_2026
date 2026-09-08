@@ -14,7 +14,7 @@ Vue générée depuis les JSON. Ne pas éditer manuellement.
 | 7 | `07-ECOMMERCE-LIFECYCLE` | N/A | N/A | NEW_WORK | — | — |
 | 8 | `08-INTERNAL-APP-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
 | 9 | `09-API-BACKEND-GOVERNANCE` | N/A | N/A | NEW_WORK | — | — |
-| 10 | `10-BACKUP-RESTORE` | ACTIVE | À FAIRE | NEW_WORK | — | — |
+| 10 | `10-BACKUP-RESTORE` | ACTIVE | ANALYSE | NEW_WORK | — | — |
 | 11 | `11-MARKETING-BRAND-DIFFERENTIATION` | ACTIVE | À FAIRE | NEW_WORK | — | — |
 | 12 | `12-DESIGN-SYSTEM-BRAND` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |
 | 13 | `13-DESIGN-NAVIGATION` | ACTIVE | BLOQUÉ | NEW_WORK | — | — |

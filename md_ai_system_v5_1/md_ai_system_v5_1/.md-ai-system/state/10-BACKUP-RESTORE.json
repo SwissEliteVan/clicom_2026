@@ -1,5 +1,5 @@
 {
-  "activation_reason": "",
+  "activation_reason": "dependency 05 validated; backup and restore requirements derived from active deployment, infrastructure and data documents",
   "applicability": "ACTIVE",
   "approved_changes": [],
   "authorized_files": [],
@@ -13,11 +13,49 @@
       "summary": "",
       "to_commit": null
     },
-    "ia1": null,
+    "ia1": {
+      "stage": "1-IA1-ANALYSE.md",
+      "status": "ANALYSE",
+      "mode": "NEW_WORK",
+      "requirements": [
+        "Couvrir les sauvegardes et restaurations de la base Supabase/PostgreSQL, des fichiers Hostinger, de Supabase Storage/uploads et des configurations critiques.",
+        "Définir la fréquence, la rétention, le chiffrement, les accès, la procédure de restauration et un test réel de restauration.",
+        "Prévoir une stratégie de reprise après sinistre proportionnée au risque, sans créer de mécanisme non justifié par les documents actifs."
+      ],
+      "policy_profile": "PRODUCTION",
+      "documented_strategy": {
+        "hostinger": "Les sauvegardes de l'hébergement sont annoncées comme quotidiennes selon le plan ; les fichiers peuvent être restaurés depuis les sauvegardes Hostinger.",
+        "supabase": "Un export hebdomadaire PostgreSQL via pg_dump et GitHub Actions est prévu dans DEPLOYMENT_PIPELINE.md.",
+        "stripe": "INFRA_COSTS.md mentionne des exports Stripe mensuels.",
+        "deployment_recovery": "En cas d'incident, redéployer le dernier commit sain via hPanel ; les sauvegardes Hostinger couvrent la restauration des fichiers.",
+        "scope": "La stratégie doit couvrir DB, fichiers, Storage/uploads et configuration critique ; les e-mails, Resend, Cal.com et paramètres Stripe restent à préciser."
+      },
+      "real_state": "Le workspace ne contient aucun package.json applicatif, environnement Supabase, workflow GitHub Action pg_dump, configuration Hostinger matérialisée, procédure automatisée de restauration ou preuve de test de restauration.",
+      "gaps": [
+        "Les durées de rétention, le nombre de générations et l'archivage ne sont pas définis.",
+        "Le chiffrement au repos et en transit, la gestion des clés et la séparation des accès ne sont pas documentés.",
+        "Les procédures détaillées de restauration PostgreSQL, Storage, fichiers Hostinger et configuration ne sont pas définies.",
+        "Aucun RPO/RTO ni plan de disaster recovery n'est défini.",
+        "Aucun test réel de restauration n'est réalisé ou prouvé.",
+        "Les sauvegardes des e-mails, Resend, Cal.com et des configurations Stripe ne sont pas couvertes par un plan global."
+      ],
+      "contradictions": [
+        "DEPLOYMENT_PIPELINE.md prévoit un export Supabase hebdomadaire et des sauvegardes Hostinger quotidiennes selon le plan, tandis qu'INFRA_COSTS.md ajoute des exports Stripe mensuels sans reprise dans la checklist de déploiement.",
+        "La fréquence Hostinger dépend du plan souscrit et ne constitue pas encore un engagement opérationnel vérifiable.",
+        "Les documents prévoient une sauvegarde Supabase hebdomadaire, mais aucun workflow pg_dump ni environnement Supabase n'est présent dans le workspace."
+      ],
+      "blockers": [
+        "Aucun environnement Supabase connecté.",
+        "Aucune destination externe de sauvegarde définie.",
+        "Aucun accès opérationnel Hostinger, Supabase, GitHub ou Stripe disponible dans le workspace.",
+        "Aucun test de restauration réel possible à ce stade."
+      ],
+      "risk_change": "ÉLEVÉ"
+    },
     "ia2": null,
     "ia3": null,
     "ia4": null,
-    "last_completed_stage": null,
+    "last_completed_stage": "1-IA1-ANALYSE.md",
     "mode": "NEW_WORK",
     "revalidation_authorized_by_ia4": false,
     "trigger": "initial"
@@ -29,6 +67,6 @@
   "last_validation": null,
   "open_blockers": [],
   "schema_version": "2.0",
-  "status": null,
+  "status": "ANALYSE",
   "validation_commit": null
 }

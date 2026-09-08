@@ -63,7 +63,7 @@
     "10-BACKUP-RESTORE": {
       "applicability": "ACTIVE",
       "state_file": "state/10-BACKUP-RESTORE.json",
-      "status": null,
+      "status": "ANALYSE",
       "validation_commit": null
     },
     "11-MARKETING-BRAND-DIFFERENTIATION": {
